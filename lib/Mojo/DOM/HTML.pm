@@ -213,6 +213,8 @@ sub _node {
 sub _render {
   my ($tree, $xml) = @_;
 
+  no warnings 'recursion';
+
   # Text (escaped)
   my $type = $tree->[0];
   return xml_escape $tree->[1] if $type eq 'text';

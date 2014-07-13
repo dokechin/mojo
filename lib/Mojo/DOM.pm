@@ -311,6 +311,8 @@ sub _tag { shift->new->tree(shift)->xml(shift) }
 sub _text {
   my ($nodes, $recurse, $trim) = @_;
 
+  no warnings 'recursion';
+
   # Merge successive text nodes
   my $i = 0;
   while (my $next = $nodes->[$i + 1]) {
